@@ -804,7 +804,7 @@ button#next.button-red:hover {
     margin-right: 8px;
 }
 
-/* Update dropdown menu styles for better mobile display */
+/* Update dropdown menu styles for proper display */
 .dropdown {
     display: none;
     position: relative;
@@ -839,6 +839,11 @@ button#next.button-red:hover {
     border: 1px solid #555;
 }
 
+/* This is the critical part we need to fix */
+.dropdown-menu.show {
+    display: flex !important;
+}
+
 .dropdown-menu button {
     width: 100%;
     text-align: left;
@@ -858,11 +863,7 @@ button#next.button-red:hover {
     background-color: rgb(97, 28, 147);
 }
 
-.dropdown-menu.show {
-    display: flex;
-}
-
-/* Show dropdown on smaller screens */
+/* Mobile-specific styling improvements */
 @media (max-width: 768px) {
     .dropdown {
         display: inline-block;
@@ -872,52 +873,87 @@ button#next.button-red:hover {
         display: none;
     }
     
-    #nav-bar {
-        padding: 10px 15px;
-        justify-content: space-between;
-        position: relative;
-        height: auto;
-        min-height: 60px;
-    }
-    
-    .dropdown {
-        margin-left: auto;
-        position: relative;
-    }
-    
     .dropdown-toggle {
-        background-color: #6a0dad;
-        padding: 8px 15px;
-        font-weight: bold;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .dropdown-menu {
-        position: absolute;
-        right: 0;
-        top: 45px;
-        width: 220px;
-        background-color: #2d2d2d;
-        padding: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        max-height: 80vh;
-        overflow-y: auto;
+        display: block !important;
     }
     
-    /* Ensure buttons stay visible in mobile dropdown */
     .dropdown-menu button {
-        opacity: 1;
-        margin: 6px 0;
-        transition: background-color 0.2s;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Update the mobile dropdown menu buttons to match their desktop color schemes */
+.dropdown-menu button {
+    width: 100%;
+    text-align: left;
+    background-color: indigo;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 5px 0;
+    font-weight: normal;
+    font-size: 0.95rem;
+}
+
+/* Specific button colors */
+#easy-mobile {
+    background-color: green;
+}
+
+#easy-mobile:hover {
+    background-color: rgb(75, 203, 75) !important; /* Match button-green:hover */
+}
+
+#medium-mobile {
+    background-color: orange;
+}
+
+#medium-mobile:hover {
+    background-color: rgb(255, 195, 30) !important;
+}
+
+#hard-mobile {
+    background-color: red;
+}
+
+#hard-mobile:hover {
+    background-color: rgb(255, 85, 85) !important; /* Match button-red:hover */
+}
+
+#impossible-mobile {
+    background-color: purple;
+}
+
+#impossible-mobile:hover {
+    background-color: rgb(148, 20, 148) !important;
+}
+
+#start-mobile {
+    background-color: indigo;
+    font-weight: bold;
+}
+
+/* Fix for the dropdown display */
+.dropdown-menu.show {
+    display: flex !important;
+}
+
+/* Ensure all buttons are visible in the dropdown */
+@media (max-width: 768px) {
+    .dropdown-toggle {
+        display: block !important;
+        background-color: #6a0dad;
+        font-weight: bold;
     }
     
-    /* Add a slight animation to the dropdown */
-    .dropdown-menu.show {
-        animation: fadeIn 0.2s ease-in-out;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+    .dropdown-menu button {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }
