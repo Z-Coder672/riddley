@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="riddle-style.css"/>
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <title> Riddley: Riddles for Everyone. </title>
+    </head>
+    <body>
+        <nav id="nav-bar"> 
+            <img id="nav-logo" src="favicon.png" alt="Riddley Logo">
+            <b> Riddley </b>
+            <button id="home"> Home </button>
+            <button id="download"> Download Riddles </button>
+            <button id="upload"> Submit Your Own Riddles</button>
+            <button id="faq"> FAQ </button>
+            <button id="easy"> Easy Riddles </button>
+            <button id="medium"> Medium Riddles </button>
+            <button id="hard"> Hard Riddles </button>
+            <button id="impossible"> Impossible Riddles </button>
+            <button id="stats"> My Stats </button>
+            <button id="start"> Start Riddling! </button>
+        </nav>
+        <div id="homepage">
+        <h1 class="center" id="riddles-for-everyone"> Riddles for everyone. </h1>
+        <p class="center" id="welcome"> Welcome to Riddley, the ultimate destination for brain-teasing fun! Whether you're a beginner or a seasoned riddle master, we have challenges that will test your wit and creativity. </p>
+        
+        <h2 class="center" id="why"> Why Riddley? </h2>
+        <ul class="center", id="reasons">
+            <p class="center"> • &nbsp&nbsp Riddley offers a wide range of riddles, from easy to impossible. </p>
+            <p class="center"> • &nbsp&nbsp with Riddley, you can challenge yourself and improve your problem-solving skills. </p>
+            <p class="center"> • &nbsp&nbsp You can even share your own riddles with our growing community. </p>
+        </ul>
+
+        <div class="center">
+            <button id="start-riddle" class="center"> Start Solving Now! </button>
+        </div>
+        </div>
+        <div id="riddle-page">
+        <p id="difficulty" class="center"> <p>
+        <p id="riddle" class="center"> </p>
+        <div class="center" id="riddle-container">
+        <form id="riddle-form" autocomplete="off">
+            <input type="text" id="riddle-answer" class="center" placeholder="Enter your answer here" />
+        </form>
+        </div>
+        <div class="center", id="riddle-buttons">
+            <button id="previous" class="button-red"> Previous Riddle </button>
+            <button id="submit"> Submit </button>
+            <button id="next" class="button-red"> Skip Riddle </button>
+        </div>
+        <p class="center" id="feedback"> </p>
+    </div>  
+        <div id="faq-page">
+            <h1 class="center">Frequently Asked Questions</h1>
+            <div id="faq-container">
+                <!-- FAQ items will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+        
+        <div id="stats-page">
+            <h1 class="center">My Stats</h1>
+            <div id="stats-container">
+                <!-- Stats will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+
+        <div id="upload-page" class="center">
+            <h1 class="center" id="submit-riddles">Submit Your Own Riddles</h1>
+            <p class="center" id="submit-riddles-description">Submit your own riddles to our community. We will review your submission(s) and add <br> them to our database if they are valid riddles and not a duplicate of another riddle. </p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScB99liu4wpGlSQYhsU5I_pIuZJm6tQHN96NEBWsLaL6dJbJg/viewform?embedded=true" width="640" height="1074" frameborder="0" marginheight="0" marginwidth="0" class="center" style="overflow-x: hidden;">Loading…</iframe>
+        </div>
+        <p class="center" id="debugger"> </p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
+        <script src="riddle.js"></script>
+    </body>
+</html>

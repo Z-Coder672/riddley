@@ -1,0 +1,805 @@
+body {
+    background-color: #383838;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.813rem);
+    position: relative;
+    top: clamp(3rem, 5vw, 5rem);
+    margin-bottom: clamp(3.5rem, 6vw, 6rem);
+    padding: 0 10px;
+}
+
+b {
+    vertical-align: middle;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+#nav-logo {
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+/* Default button styles */
+button {
+    color: white;
+    border: none;
+    background-color: indigo;
+    border-radius: clamp(0.8rem, 1.5vw, 1.5rem);
+    padding: clamp(0.25rem, 0.8vw, 0.5rem) clamp(0.4rem, 1vw, 0.8rem);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-size: clamp(0.75rem, 0.8vw, 0.9rem);
+}
+
+#nav-bar button {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/* Standard hover for indigo buttons (default) */
+button:hover {
+    background-color: rgb(97, 28, 147);
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#nav-bar {
+    background-color: #383838;
+    position: fixed;
+    border-bottom: 2px solid #767676;
+    top: 0px;
+    z-index: 1000;
+    padding: clamp(0.5rem, 1vw, 1.063rem);
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Hide certain navigation buttons on smaller screens */
+@media (max-width: 768px) {
+    #nav-bar {
+        justify-content: space-between;
+        padding: 10px;
+    }
+    
+    #home, #download, #upload, #faq, #stats {
+        display: none;
+    }
+    
+    #nav-bar b {
+        margin-right: auto;
+    }
+}
+
+/* Show a minimal navbar on very small screens */
+@media (max-width: 480px) {
+    #nav-bar button {
+        margin: 3px;
+        padding: 8px 12px;
+    }
+    
+    #easy, #medium, #hard, #impossible {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    #start {
+        margin-left: auto;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    
+    button {
+        padding: 10px 16px;
+        font-size: 1rem;
+        border-radius: 20px;
+    }
+    
+    #submit, #previous, #next {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        margin: 8px 0;
+    }
+    
+    #riddle {
+        width: 90%;
+        margin-bottom: 25px;
+        padding-bottom: 60px;
+        padding-left: 15px;
+        padding-right: 15px;
+        top: 20px;
+        font-size: 0.95rem;
+    }
+    
+    #riddle-container {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+    
+    #riddle-answer {
+        bottom: 40px;
+        width: 80%;
+        font-size: 1.15rem;
+        padding: 6px;
+    }
+    
+    #riddle-answer:focus {
+        width: 80%;
+        padding: 7px;
+    }
+    
+    #riddle-buttons {
+        margin-top: 20px;
+    }
+    
+    #difficulty {
+        top: 25px;
+        font-size: 12px;
+    }
+    
+    #feedback {
+        top: 5px;
+        width: 80%;
+        font-size: 18px;
+    }
+}
+
+/* Even larger buttons on very small screens */
+@media (max-width: 360px) {
+    button {
+        padding: 12px 18px;
+        font-size: 1.1rem;
+    }
+    
+    #submit, #previous, #next {
+        font-size: 1.15rem;
+        padding: 14px 22px;
+    }
+    
+    #riddle {
+        width: 95%;
+        padding-bottom: 55px;
+        font-size: 0.9rem;
+    }
+    
+    #riddle-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    #riddle-answer {
+        bottom: 35px;
+        width: 85%;
+        font-size: 1.2rem;
+        padding: 7px;
+    }
+    
+    #riddle-answer:focus {
+        width: 85%;
+        padding: 8px;
+    }
+    
+    #riddle-buttons {
+        margin-top: 60px;
+    }
+    
+    #difficulty {
+        top: 15px;
+    }
+    
+    #feedback {
+        top: 0px;
+        width: 85%;
+    }
+}
+
+#home {
+
+}
+
+#download {
+
+}
+
+#upload {
+
+}
+
+#faq {
+
+}
+
+/* Consistent hover styles for difficulty buttons */
+#easy {
+    background-color: green;
+}
+
+#easy:hover {
+    background-color: rgb(75, 203, 75); /* Match button-green:hover */
+}
+
+#medium {
+    background-color: orange;
+}
+
+#medium:hover {
+    background-color: rgb(255, 195, 30);
+}
+
+#hard {
+    background-color: red;
+}
+
+#hard:hover {
+    background-color: rgb(255, 85, 85); /* Match button-red:hover */
+}
+
+#impossible {
+    background-color: purple;
+}
+
+#impossible:hover {
+    background-color: rgb(148, 20, 148);
+}
+
+#start {
+
+}
+
+#difficulty {
+    position: relative;
+    top: 35px;
+    font-size: 13px;
+    color: lightgrey;
+    margin-bottom: 10px;
+}
+
+#riddle { 
+    border: grey 2px solid;
+    border-radius: 10px;
+    background-color: indigo;
+    width: 260px;
+    padding: 10px 15px;
+    padding-bottom: 65px;
+    position: relative;
+    height: auto;
+    top: 30px;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    margin: 20px auto 45px;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#riddle-container {
+    max-width: 600px;
+    margin: 30px auto 60px;
+    padding: 0 15px;
+    position: relative;
+}
+
+#riddle-answer {
+    position: absolute;
+    z-index: 9999;
+    top: auto;
+    bottom: 35px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    width: clamp(12rem, 1.4vw + 11.5rem, 13.5rem);
+    font-size: clamp(1rem, 1.1vw, 1.2rem);
+    padding: 5px;
+    text-align: center;
+}
+
+#riddle-answer:focus {
+    border: blue 1px solid;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px;
+}
+
+#submit {
+    background-color: green;
+}
+
+#next {
+    transition: background-color 0.3s ease !important;
+}
+
+#previous {
+    transition: background-color 0.3s ease !important;
+}
+
+#submit:hover {
+    background-color: rgb(75, 203, 75) !important; /* Match button-green:hover */
+}
+
+#previous:hover {
+    background-color: rgb(255, 85, 85) !important; /* Match button-red:hover */
+    cursor: pointer !important;
+    transform: scale(1.05);
+}
+
+/* Classes for JavaScript to use instead of inline styles */
+.button-red {
+    background-color: red !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.button-green {
+    background-color: green !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.button-purple {
+    background-color: indigo !important;
+    transition: background-color 0.3s ease !important;
+}
+
+/* General hover styles for button classes */
+.button-red:hover {
+    background-color: rgb(255, 85, 85) !important; /* Lighter red */
+    cursor: pointer !important;
+    transform: scale(1.05);
+}
+
+.button-purple:hover {
+    background-color: rgb(97, 28, 147) !important; /* Lighter purple */
+    cursor: pointer !important;
+    transform: scale(1.05);
+}
+
+.button-green:hover {
+    background-color: rgb(75, 203, 75) !important; /* Lighter green */
+    cursor: pointer !important;
+    transform: scale(1.05);
+}
+
+/* Override for next button when red - make it consistent with other red buttons */
+#next.button-red:hover {
+    background-color: rgb(255, 85, 85) !important; /* Match other red buttons */
+}
+
+/* Ensure the next button with button-red class changes color on hover */
+button#next.button-red:hover {
+    background-color: rgb(255, 85, 85) !important; /* Match other red buttons */
+}
+
+#riddle-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 60px auto 20px;
+    max-width: 600px;
+    padding: 0 15px;
+    position: relative;
+}
+
+#submit, #next, #previous {
+    min-width: 120px;
+}
+
+#feedback {
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+    width: clamp(11.875rem, 1.408vw + 11.435rem, 13.125rem);
+    padding: 5px 10px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    background-color: indigo;
+    display: none;
+    margin: 0 auto;
+}
+
+#homepage {
+}
+
+#riddle-page {
+    display: none;
+    margin-top: 100px;
+    padding: 0 15px;
+}
+
+#welcome {
+    position: relative;
+    top: clamp(8.313rem, 1.566vw + 7.308rem, 9.188rem);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+#why {
+    position: relative;
+    top: clamp(8.688rem, 1.342vw + 7.827rem, 9.438rem);
+    margin-top: clamp(2rem, 4vw, 4rem);
+}
+
+#reasons {
+    position: relative;
+    top: clamp(9.313rem, 1.342vw + 8.452rem, 10.063rem);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 clamp(1rem, 5vw, 3rem);
+    line-height: 1.5;
+}
+
+#start-riddle {
+    position: relative;
+    top: clamp(10.625rem, 1.709vw + 9.824rem, 11.875rem);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+    margin-top: clamp(1.5rem, 3vw, 3rem);
+}
+
+#riddles-for-everyone {
+    position: relative;
+    top: clamp(6rem, 1.709vw + 5rem, 7rem);
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+#debugger {
+    position: relative;
+}
+
+#faq-page {
+    display: none;
+    margin-top: 100px;
+    padding: 20px;
+    max-width: 100%;
+}
+
+#faq-page h1 {
+    margin-top: -100px; /* Move the title up by 100px */
+    position: relative;
+}
+
+#upload-page {
+    display: none;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+#faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 70px;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    background-color: #4b4b4b;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.faq-question {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.faq-answer {
+    line-height: 1.5;
+    color: #e0e0e0;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+#back-to-home {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: indigo;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#back-to-home:hover {
+    background-color: rgb(97, 28, 147); /* Match default button:hover */
+}
+
+/* Keep the responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    #riddle-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #riddle-buttons button {
+        width: 80%;
+        margin: 5px 0;
+        padding: 12px 15px;
+        font-size: 1.05rem;
+    }
+    
+    .faq-item {
+        padding: 12px 15px;
+    }
+}
+
+/* Print styles for better printing */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    #nav-bar, #riddle-buttons, #back-to-home {
+        display: none;
+    }
+    
+    .faq-item {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+    }
+}
+
+#stats-page {
+    display: none;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+#stats-page h1 {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+#stats-container {
+    max-width: 800px;
+    margin: 90px auto;
+    padding: 25px;
+    background-color: rgba(75, 75, 75, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stats-item {
+    margin-bottom: 20px;
+    padding: 18px;
+    background-color: #4b4b4b;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1.05rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats-item:hover {
+    background-color: #555555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #9370DB;
+}
+
+.stats-item::after {
+    content: "→";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease, right 0.2s ease;
+    font-size: 1.2rem;
+}
+
+.stats-item:hover::after {
+    opacity: 1;
+    right: 10px;
+}
+
+/* Special styling for the total stats item - using specific class instead of position */
+.stats-item.total-stats {
+    background-color: #4a3d69;
+    border-left: 4px solid #9370DB;
+    font-weight: bold;
+}
+
+.stats-item.total-stats:hover {
+    background-color: #544580;
+}
+
+/* Make the back button more attractive */
+.button-purple {
+    background-color: indigo !important;
+    transition: all 0.3s ease !important;
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.button-purple:hover {
+    background-color: rgb(97, 28, 147) !important;
+    cursor: pointer !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+#submit-riddles {
+    margin-top: -90px;
+    padding-top: 0px;
+}
+
+#submit-riddles-description {
+    margin-top: 90px;
+
+}
+
+/* Remove all the upload-specific styles below */
+.upload-intro {
+    /* Removed */
+}
+
+#upload-form {
+    /* Removed */
+}
+
+.form-group {
+    /* Removed */
+}
+
+.form-group label {
+    /* Removed */
+}
+
+#upload-riddle, #upload-answer {
+    /* Removed */
+}
+
+#upload-difficulty {
+    /* Removed */
+}
+
+#upload-difficulty option {
+    /* Removed */
+}
+
+.form-hint {
+    /* Removed */
+}
+
+.form-actions {
+    /* Removed */
+}
+
+#upload-button {
+    /* Removed */
+}
+
+#upload-button:hover {
+    /* Removed */
+}
+
+#cancel-upload {
+    /* Removed */
+}
+
+#cancel-upload:hover {
+    /* Removed */
+}
+
+#upload-feedback {
+    /* Removed */
+}
+
+.feedback-success {
+    /* Removed */
+}
+
+.feedback-error {
+    /* Removed */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    #upload-form {
+        padding: 15px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    #upload-button, #cancel-upload {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Styling for riddle text and status in stats page */
+.riddle-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.riddle-status {
+    font-size: 0.9rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    min-width: 100px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.riddle-status.solved {
+    background-color: rgba(0, 128, 0, 0.3);
+    color: lightgreen;
+    border: 1px solid green;
+}
+
+.riddle-status.not-solved {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: lightcoral;
+    border: 1px solid red;
+}
+
+/* Return to stats indicator */
+.from-stats-indicator {
+    display: inline-block;
+    margin: 10px auto;
+    padding: 8px 15px;
+    background-color: #4a3d69;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+    border-left: 4px solid #9370DB;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.from-stats-indicator:hover {
+    background-color: #544580;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.from-stats-indicator::before {
+    content: "←";
+    margin-right: 8px;
+}
