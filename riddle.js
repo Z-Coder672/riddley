@@ -1148,6 +1148,9 @@ document.addEventListener("DOMContentLoaded", () => {
   dropdownToggle.addEventListener("click", (event) => {
     event.stopPropagation(); // Prevent the document click handler from immediately closing it
     dropdownMenu.classList.toggle('show');
+    
+    // Debug line to verify the menu is toggling
+    console.log("Dropdown clicked, menu visibility:", dropdownMenu.classList.contains('show'));
   });
   
   // Hide dropdown when clicking outside
