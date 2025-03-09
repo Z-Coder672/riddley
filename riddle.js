@@ -602,6 +602,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const previous = document.getElementById("previous");
   const uploadPage = document.getElementById("upload-page");
   const statsPage = document.getElementById("stats-page");
+  
+  // Mobile dropdown elements
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const homeMobile = document.getElementById("home-mobile");
+  const downloadMobile = document.getElementById("download-mobile");
+  const uploadMobile = document.getElementById("upload-mobile");
+  const faqMobile = document.getElementById("faq-mobile");
+  const easyMobile = document.getElementById("easy-mobile");
+  const mediumMobile = document.getElementById("medium-mobile");
+  const hardMobile = document.getElementById("hard-mobile");
+  const impossibleMobile = document.getElementById("impossible-mobile");
+  const statsMobile = document.getElementById("stats-mobile");
+  const startMobile = document.getElementById("start-mobile");
 
   // Initialize completion status for all riddles
   var riddleStatus = {
@@ -622,6 +636,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var currDifficulty           // Current difficulty level
   var totalSolved = 0;         // Total riddles solved
 
+  switchPages(homepage);
 
   /**
    * Gets the default CSS display property for a given HTML tag
@@ -876,7 +891,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start buttons (from homepage and riddle page)
   [start, startR].forEach((element) => {
     element.addEventListener("click", () => {
-      if (riddlePage.style.display == "none") {
+      if (riddlePage.style.display === "none") {
         switchPages(riddlePage);
         showRiddle("easy", 0);
       }
@@ -958,7 +973,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         showRiddle(currDifficulty, currRiddleNum);
       } else {
-        showRiddle(currDifficulty, currRiddleNum + 1);
+      showRiddle(currDifficulty, currRiddleNum + 1);
       }
     }
   });
@@ -987,7 +1002,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       showRiddle(currDifficulty, currRiddleNum);
     } else {
-      showRiddle(currDifficulty, currRiddleNum + 1);
+    showRiddle(currDifficulty, currRiddleNum + 1);
     }
   });
 
@@ -1018,7 +1033,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       showRiddle(currDifficulty, currRiddleNum);
     } else {
-      showRiddle(currDifficulty, currRiddleNum - 1);
+    showRiddle(currDifficulty, currRiddleNum - 1);
     }
   });
 
@@ -1127,5 +1142,98 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     }, 100);
+  });
+
+  // Mobile dropdown toggle
+  dropdownToggle.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent the document click handler from immediately closing it
+    dropdownMenu.classList.toggle('show');
+  });
+  
+  // Hide dropdown when clicking outside
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".dropdown") && dropdownMenu.classList.contains('show')) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+  
+  // Mobile navigation button event listeners
+  homeMobile.addEventListener("click", () => {
+    switchPages(homepage);
+    dropdownMenu.classList.remove('show');
+  });
+  
+  downloadMobile.addEventListener("click", () => {
+    const json = JSON.stringify(riddles);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "riddles.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    dropdownMenu.classList.remove('show');
+  });
+  
+  uploadMobile.addEventListener("click", () => {
+    switchPages(uploadPage);
+    dropdownMenu.classList.remove('show');
+  });
+  
+  faqMobile.addEventListener("click", () => {
+    switchPages(faqPage);
+    displayFAQs();
+    dropdownMenu.classList.remove('show');
+  });
+  
+  easyMobile.addEventListener("click", () => {
+    if (currDifficulty != "easy") {
+      switchPages(riddlePage);
+      showRiddle("easy", 0);
+    }
+    dropdownMenu.classList.remove('show');
+  });
+  
+  mediumMobile.addEventListener("click", () => {
+    if (currDifficulty != "medium") {
+      switchPages(riddlePage);
+      showRiddle("medium", 0);
+    }
+    dropdownMenu.classList.remove('show');
+  });
+  
+  hardMobile.addEventListener("click", () => {
+    if (currDifficulty != "hard") {
+      switchPages(riddlePage);
+      showRiddle("hard", 0);
+    }
+    dropdownMenu.classList.remove('show');
+  });
+  
+  impossibleMobile.addEventListener("click", () => {
+    if (currDifficulty != "impossible") {
+      switchPages(riddlePage);
+      showRiddle("impossible", 0);
+    }
+    dropdownMenu.classList.remove('show');
+  });
+  
+  statsMobile.addEventListener("click", () => {
+    switchPages(statsPage);
+    updateStatsPage();
+    dropdownMenu.classList.remove('show');
+  });
+  
+  startMobile.addEventListener("click", () => {
+    switchPages(riddlePage);
+    showRiddle("easy", "random");
+    dropdownMenu.classList.remove('show');
+  });
+
+  // Next button - shows the next riddle
+  next.addEventListener("click", () => {
+    // ... existing code ...
   });
 });
