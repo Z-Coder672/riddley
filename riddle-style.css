@@ -119,8 +119,8 @@ button:hover {
     
     #riddle {
         width: 90%;
-        margin-bottom: 25px;
-        padding-bottom: 60px;
+        margin-bottom: 0px;
+        padding-bottom: 40px;
         padding-left: 15px;
         padding-right: 15px;
         top: 20px;
@@ -131,18 +131,6 @@ button:hover {
         margin-top: 30px;
         margin-bottom: 40px;
         position: relative;
-    }
-    
-    #riddle-answer {
-        bottom: 40px;
-        width: 80%;
-        font-size: 1.15rem;
-        padding: 6px;
-    }
-    
-    #riddle-answer:focus {
-        width: 80%;
-        padding: 7px;
     }
     
     #riddle-buttons {
@@ -175,25 +163,13 @@ button:hover {
     
     #riddle {
         width: 95%;
-        padding-bottom: 55px;
+        padding-bottom: 48px;
         font-size: 0.9rem;
     }
     
     #riddle-container {
         margin-top: 30px;
         margin-bottom: 30px;
-    }
-    
-    #riddle-answer {
-        bottom: 35px;
-        width: 85%;
-        font-size: 1.2rem;
-        padding: 7px;
-    }
-    
-    #riddle-answer:focus {
-        width: 85%;
-        padding: 8px;
     }
     
     #riddle-buttons {
@@ -271,46 +247,50 @@ button:hover {
     margin-bottom: 10px;
 }
 
-#riddle { 
+#riddle {
     border: grey 2px solid;
     border-radius: 10px;
     background-color: indigo;
     width: 260px;
     padding: 10px 15px;
-    padding-bottom: 65px;
     position: relative;
     height: auto;
     top: 30px;
     font-size: clamp(1rem, 1.8vw, 1.3rem);
-    margin: 20px auto 45px;
+    margin: 20px auto -10px;
     line-height: 1.5;
-    margin-left: auto;
-    margin-right: auto;
+    padding-bottom: 35px !important;
 }
 
-#riddle-container {
-    max-width: 600px;
-    margin: 30px auto 60px;
-    padding: 0 15px;
-    position: relative;
+#creator-container {
+    margin: 10px 0;
+    text-align: center;
 }
 
 #riddle-answer {
-    position: absolute;
-    z-index: 9999;
-    top: auto;
-    bottom: 35px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+    margin-top: 20px;
     border: none;
     background-color: transparent;
     outline: none;
-    color: white;
+    color: #c0c0c0;
     width: clamp(12rem, 1.4vw + 11.5rem, 13.5rem);
     font-size: clamp(1rem, 1.1vw, 1.2rem);
     padding: 5px;
     text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    opacity: 1;
+}
+
+#riddle-answer::placeholder {
+    color: #c0c0c0;
+}
+
+#riddle-form {
+    position: relative;
+    margin-top: 0px;
 }
 
 #riddle-answer:focus {
@@ -830,7 +810,7 @@ button#next.button-red:hover {
     background-color: #333;
     min-width: 200px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1001;
+    z-index: 100000000;
     border-radius: 10px;
     padding: 10px;
     flex-direction: column;
@@ -842,6 +822,7 @@ button#next.button-red:hover {
 /* This is the critical part we need to fix */
 .dropdown-menu.show {
     display: flex !important;
+    z-index: 100000000;
 }
 
 .dropdown-menu button {
@@ -857,10 +838,12 @@ button#next.button-red:hover {
     margin: 5px 0;
     font-weight: normal;
     font-size: 0.95rem;
+    z-index: 100000000;
 }
 
 .dropdown-menu button:hover {
     background-color: rgb(97, 28, 147);
+    z-index: 100000000;
 }
 
 /* Mobile-specific styling improvements */
@@ -955,5 +938,58 @@ button#next.button-red:hover {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+    }
+}
+
+/* Riddle creator credit styling */
+#riddle-creator {
+    font-size: 0.7em;
+    color: #c0c0c0;
+    opacity: 0.8;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #riddle-creator {
+        font-size: 0.7em;
+        margin-top: 6px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    #riddle-creator {
+        font-size: 0.7em;
+        margin-top: 4px;
+        margin-bottom: 20px;
+    }
+}
+
+#creator-container {
+    margin: 0 auto 15px;
+    padding: 0;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    #creator-container {
+        margin-bottom: 10px;
+    }
+    
+    #riddle-creator {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    #creator-container {
+        margin-bottom: 8px;
+    }
+    
+    #riddle-creator {
+        font-size: 0.7em;
     }
 }
