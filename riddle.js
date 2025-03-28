@@ -8,6 +8,7 @@
  * Each riddle object contains:
  * - question: The riddle text
  * - answers: Array of acceptable answers (for fuzzy matching)
+ * - creator: The source/author of the riddle
  */
 const riddles = {
   easy: [
@@ -26,11 +27,13 @@ const riddles = {
         "Light stick",
         "Chemical light",
       ],
+      creator: "From Riddley Library"
     },
     {
       question:
         "What has hands but cannot clap?",
       answers: ["A clock", "Clock", "A watch", "Watch", "Wall clock", "Grandfather clock", "Wristwatch", "Timepiece", "A timepiece", "Clocks", "Watches"],
+      creator: "From Riddley Library"
     },
     {
       question: "What month of the year has 28 days?",
@@ -44,10 +47,12 @@ const riddles = {
         "Each month",
         "All 12 months",
       ],
+      creator: "From Riddley Library"
     },
     {
       question: "What is full of holes but still holds water?",
       answers: ["A sponge", "Sponge", "A perforated container", "Sponges", "A kitchen sponge", "Bath sponge", "Natural sponge", "Synthetic sponge"],
+      creator: "From Riddley Library"
     },
     {
       question: "What question can you never (honestly) answer yes to?",
@@ -60,6 +65,7 @@ const riddles = {
         "Are you sleeping now",
         "Are you asleep right now",
       ],
+      creator: "From Riddley Library"
     },
     {
       question: "What is always in front of you but can't be seen?",
@@ -71,6 +77,7 @@ const riddles = {
         "Your potential",
         "Your future",
       ],
+      creator: "From Riddley Library"
     },
     {
       question:
@@ -82,10 +89,12 @@ const riddles = {
         "It's a one-story house, so no stairs",
         "there are no stairs",
       ],
+      creator: "From Riddley Library"
     },
     {
       question: "What can you break, even if you never pick it up or touch it?",
       answers: ["A promise", "Promises", "Silence", "A vow"],
+      creator: "From Riddley Library"
     },
     {
       question: "What goes up but never comes down?",
@@ -101,6 +110,11 @@ const riddles = {
         "He was hairless",
         "bald",
       ],
+    },
+    {
+      question: "What is seen in the middle of March and April that can't be seen at the beginning or end of either month?",
+      answers: ["R", "r", "'r'", '"r"', "The letter R", "The letter r", "The letter 'r'", "The letter 'R'", 'The letter "r"'],
+      creator: "From Riddley Library"
     },
     {
       question: "What gets wet while drying?",
@@ -175,13 +189,14 @@ const riddles = {
     {
       question: "What has ears but cannot hear?",
       answers: ["A cornfield", "Corn", "A field of corn"],
-    }
+    },
   ],
   medium: [
     {
       question:
         "I'm light as a feather, yet the strongest person can't hold me for 25 minutes. What am I?",
       answers: ["Your breath", "Breath", "The breath", "Breathing", "Human breath", "One's breath", "Air from lungs"],
+      creator: "From Riddley Library"
     },
     {
       question: "Where does today come before yesterday?",
@@ -194,24 +209,29 @@ const riddles = {
         "In alphabetical listing",
         "Dictionary order",
       ],
+      creator: "From Riddley Library"
     },
     {
       question: "What invention lets you look right through a wall?",
       answers: ["A window", "A glass window", "transparent glass", "window", "Windows", "Glass pane", "Glass panel", "Window pane", "House window"],
+      creator: "From Riddley Library"
     },
     {
       question:
         "If you've got me, you want to share me; if you share me, you haven't kept me. What am I?",
       answers: ["A secret", "A confidential matter", "secret", "Secrets", "The secret", "Confidential information", "Private information"],
+      creator: "From Riddley Library"
     },
     {
       question: "What can't be put in a saucepan?",
       answers: ["Its lid", "The saucepans lid", "The cover of the saucepan"],
+      creator: "From Riddley Library"
     },
     {
       question:
         "I have keys but no locks. I have a space but no room. You can enter, but you can't exit. What am I?",
       answers: ["A keyboard", "A computer keyboard", "keyboard"],
+      creator: "From Riddley Library"
     },
     {
       question: "What is easy to get into, but hard to get out of?",
@@ -301,12 +321,22 @@ const riddles = {
     {
       question: "What has one eye but can't see?",
       answers: ["A needle", "A sewing needle"],
-    }
+    },
+    {
+      question: "You walk into a room and see a bed. On the bed, there are two dogs, five cats, a giraffe, six cows, and a goose. There are also three doves flying above the bed. How many legs are on the floor?",
+      answers: ["6", "Six", "6 - the bed's legs plus your legs"],
+      creator: "Skibidi Riddler"
+    },
+    {
+      question: "What is dry with cold but becomes wet with heat?",
+      answers: ["Ice", "Snow", "Ice crystals", "Water "],
+    },
   ],
   hard: [
     {
       question: "What animal walks on all fours in the morning, two in the afternoon, and three in the evening?",
       answers: ["Human", "Man", "Person", "A human", "A man", "Mankind", "A person"],
+      creator: "From Riddley Library"
     },
     {
       question: "What asks but never answers?",
@@ -316,11 +346,13 @@ const riddles = {
       question:
         "You measure my life in hours and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat. The wind is my enemy. What am I?",
       answers: ["A candle", "A wick", "A burning candle"],
+      creator: "From Riddley Library"
     },
     {
       question:
         "I turn around once, what is out will not get in. I turn around again, what is in will not get out. What am I?",
       answers: ["A key", "A door key", "Lock key", "House key", "The key"],
+      creator: "From Riddley Library"
     },
     {
       question:
@@ -333,6 +365,7 @@ const riddles = {
         "casket",
         "grave box",
       ],
+      creator: "From Riddley Library"
     },
     {
       question:
@@ -422,103 +455,128 @@ const riddles = {
     {
       question: "What is made of water but if you put it into water it will die?",
       answers: ["An ice cube", "Ice", "Frozen water", "Ice cubes", "A snowflake"],
+      creator: "From Riddley Library"
     },
     {
       question: "What can be broken, but is never held?",
       answers: ["A promise", "A vow", "A trust"],
+      creator: "From Riddley Library"
     },
     {
       question: "What gets sharper the more you use it?",
       answers: ["Your brain", "Your mind", "Your intellect"],
+      creator: "From Riddley Library"
     },
     {
       question: "What is invisible and makes things visible?",
       answers: ["Light", "Air", "Energy"],
+      creator: "From Riddley Library"
     },
     {
       question: "What is greater than God, more evil than the devil, the poor have it, the rich need it, and if you eat it, you die?",
       answers: ["Nothing", "Zero", "Nada", "Nil", "Void", "Emptiness", "The answer is nothing", "There is nothing"],
+      creator: "From Riddley Library"
     },
     {
       question: "What can you hold without ever touching it?",
       answers: ["Your breath", "A conversation", "A thought", "Breath", "Thoughts", "Memories", "Eye contact", "Attention", "A gaze"],
+      creator: "From Riddley Library"
     },
     {
       question: "What has keys but can't open locks?",
       answers: ["A piano", "A keyboard", "A computer keyboard"],
+      creator: "From Riddley Library"
     },
     {
       question: "What comes once in a minute, twice in a moment, but never in a thousand years?",
       answers: ["The letter 'M'", "The letter m", "M"],
+      creator: "From Riddley Library"
     },
     {
       question: "The more of this there is, the less you see. What is it?",
       answers: ["Darkness", "The dark", "Shadows"],
+      creator: "From Riddley Library"
     },
     {
       question: "What has four fingers and a thumb but is not alive?",
       answers: ["A glove", "A mitten", "A hand-shaped object"],
+      creator: "From Riddley Library"
     },
     {
       question: "I am something that can never be fully known, yet you can always feel me, even when I'm not present. What am I?",
       answers: ["Love", "Emotion", "Time"],
+      creator: "From Riddley Library"
     },
     {
       question: "What never asks a question, but gets answered all the time?",
       answers: ["A telephone", "A phone", "A text message"],
+      creator: "From Riddley Library"
     },
     {
       question: "What is so fragile that saying its name breaks it?",
       answers: ["Silence", "Quiet", "Stillness"],
+      creator: "From Riddley Library"
     },
     {
       question: "What begins with an E, ends with an E, but only contains one letter?",
       answers: ["An envelope", "A letter", "Envelope", "The envelope", "A mail envelope", "Postal envelope", "Mailing envelope"],
+      creator: "From Riddley Library"
     },
     {
       question: "What do you throw out when you want to use it, but take in when you don't want to use it?",
       answers: ["An anchor", "A boat anchor", "Ship anchor", "Anchor", "The anchor"],
+      creator: "From Riddley Library"
     },
     {
       question: "I have cities, but no houses. I have forests, but no trees. I have rivers, but no water. What am I?",
       answers: ["A map", "A world map", "A geographical map"],
+      creator: "From Riddley Library"
     },
     {
       question: "What can't be seen but can be heard, and can't be touched but can be felt?",
       answers: ["A sound", "A whisper", "A voice"],
+      creator: "From Riddley Library"
     },
     {
       question: "What has no beginning, end, or middle?",
       answers: ["A circle", "A loop", "A sphere"],
+      creator: "From Riddley Library"
     },
     {
       question: "What falls but never breaks, and breaks but never falls?",
       answers: ["Night and day", "Night falls day breaks", "Dusk and dawn", "Day and night"],
+      creator: "From Riddley Library"
     },
     {
       question: "What has a head, a tail, but no body?",
       answers: ["A coin", "A penny", "A coin flip"],
+      creator: "From Riddley Library"
     },
     {
       question: "What comes down, but never goes up?",
       answers: ["Rain", "Snow", "The temperature"],
+      creator: "From Riddley Library"
     },
     {
       question: "What word is spelled incorrectly in every dictionary?",
       answers: ["Incorrectly", "The word incorrectly", "Incorrectly is", "The word 'incorrectly'"],
+      creator: "From Riddley Library"
     },
     {
       question: "I move without wings, between silken strings. What am I?",
       answers: ["A spider", "An arachnid", "A web spinner", "A spider on its web"],
+      creator: "From Riddley Library"
     },
     {
       question: "What belongs to you but others use it more than you do?",
       answers: ["Your name", "My name", "Name", "A name", "Your identity"],
+      creator: "From Riddley Library"
     },
     {
       question: "What goes on four legs in the morning, two legs in the afternoon, and three legs in the evening?",
       answers: ["A human", "Man", "A person", "Humankind", "People"],
-    },
+      creator: "From Riddley Library"
+    }
   ]
 };
 
@@ -559,15 +617,27 @@ const faqs = [
   },
   {
     question: "Can I create or submit my own riddles?",
-    answer: "We're working on a feature to allow users to submit their own riddles. Stay tuned for updates on when this feature will be available!"
+    answer: "Yes! You can now add your own riddles to the game. Simply navigate to the upload section and follow the instructions to submit your riddles."
+  },
+  {
+    question: "What happens if I answer a riddle correctly?",
+    answer: "When you answer a riddle correctly, you will receive feedback indicating that your answer is correct, and you can proceed to the next riddle. Your progress will be saved automatically."
+  },
+  {
+    question: "Is there a feature to download riddles?",
+    answer: "Yes! You can download all riddles in a text file format by clicking the 'Download Riddles' button on the homepage."
+  },
+  {
+    question: "Can I view my riddle-solving stats?",
+    answer: "Absolutely! You can view your stats by clicking on the 'Stats' button, which will show you how many riddles you've solved across different difficulty levels."
   },
   {
     question: "How many riddles are there in total?",
-    answer: "Currently, the game contains over 100 riddles across all difficulty levels: 25 Easy, 25 Medium, 25 Hard, and 25 Impossible riddles."
+    answer: `Currently, the game contains ${riddles.easy.length + riddles.medium.length + riddles.hard.length + riddles.impossible.length} riddles across all difficulty levels: ${riddles.easy.length} Easy, ${riddles.medium.length} Medium, ${riddles.hard.length} Hard, and ${riddles.impossible.length} Impossible riddles.`
   },
   {
     question: "Is my progress saved?",
-    answer: "Currently, the game doesn't save your progress between sessions. We're working on adding this feature in a future update."
+    answer: "Currently, the game saves your progress to the browser's local storage. This means that your progress will be lost if you clear your browser's cache or use a different browser."
   }
 ];
 
@@ -741,6 +811,57 @@ document.addEventListener("DOMContentLoaded", () => {
         " #" +
         (riddleNum + 1);
     }
+
+    // Display the creator of the riddle
+    let creatorElement = document.getElementById("riddle-creator");
+    if (!creatorElement) {
+        creatorElement = document.createElement("p");
+        creatorElement.id = "riddle-creator";
+        creatorElement.className = "center";
+    }
+    
+    // Set the creator text (use a default if not set)
+    creatorElement.textContent = currRiddle.creator || "From Riddley Library";
+
+    // Append creator element to the riddle container
+    const riddleContainer = document.getElementById("riddle");
+    riddleContainer.appendChild(creatorElement);
+
+    // Append the answer field to the riddle container
+    riddleContainer.appendChild(riddleAnswer);
+
+    // Fix layout issues - ensure proper spacing between elements
+    adjustLayout();
+  }
+  
+  /**
+   * Adjust the layout to ensure proper spacing between elements
+   */
+  function adjustLayout() {
+    // Give the browser a moment to render before adjusting
+    setTimeout(() => {
+      const creatorElement = document.getElementById("riddle-creator");
+      const riddleContainer = document.getElementById("riddle");
+      const riddleForm = document.getElementById("riddle-form");
+      
+      if (creatorElement && riddleContainer) {
+        // Add some space between creator and answer field
+        riddleContainer.style.marginTop = "30px";
+      }
+      
+      // Make sure the riddle has enough space for everything
+      const riddleElement = document.getElementById("riddle");
+      if (riddleElement) {
+        // Ensure there's enough padding at the bottom of the riddle
+        riddleElement.style.paddingBottom = "80px";
+      }
+      
+      // Position the answer field correctly
+      if (riddleForm) {
+        riddleForm.style.position = "relative";
+        riddleForm.style.top = "0";
+      }
+    }, 10);
   }
 
   /**
@@ -1239,4 +1360,13 @@ document.addEventListener("DOMContentLoaded", () => {
   next.addEventListener("click", () => {
     // ... existing code ...
   });
+
+  function getHint(riddle) {
+    // Simple hint logic: return the first answer as a hint
+    return `The answer starts with: ${riddle.answers[0][0]}`;
+  }
+  
+  // Add this in the DOMContentLoaded event listener
+  const hintButton = document.getElementById("hint-button");
+  hintButton.addEventListener("click", useHint);
 });
